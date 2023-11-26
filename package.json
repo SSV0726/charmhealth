@@ -1,0 +1,35 @@
+{
+  "name": "talkin-cedric",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express, instantly up and running.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodenv ."
+  },
+  "dependencies": {
+    "@aws-sdk/eventstream-marshaller": "0.1.0-preview.2",
+    "@aws-sdk/util-utf8-node": "0.1.0-preview.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.6.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "query-string": "^6.11.1"
+  },
+  "engines": {
+    "node": "20.10.0"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ],
+  "devDependencies": {
+    "configure-env": "^1.0.0",
+    "node-env-run": "^3.0.2"
+  }
+}

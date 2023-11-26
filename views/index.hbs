@@ -1,0 +1,202 @@
+<!-- views/layout.hbs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dr.GPT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwT" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <h1>Dr. GPT on Mobile</h1>
+        <h4>Charmhealth Hackathon Demo</h4>
+    </header>
+
+    <div style="display: flex; justify-content: space-around;">
+
+        <!-- Form 1 -->
+        <div class="container indform">
+            <form id="form1" action="https://rakathon.oxfin.in/project/65626c987fd87031a7517365" method="PUT">
+                <h2>1. <u>Customize AI bot </u></h2>
+                <i> Customize your AI bot according to your requirements. </i><br><br>
+                <div class="form-group">
+                    <label for="companyName">Hospital Name:</label>
+                    <input type="text" class="form-control" id="companyName" name="companyName" value="Cleveland Hospital" required>
+                </div>
+
+                 <div class="form-group">
+                    <label for="greetingQuery">Greeting Message:</label>
+                    <textarea type="text" class="form-control" id="greetingQuery" name="greetingQuery" required rows="5" cols="50">
+Welcome to Cleveland Hospital, 
+I am Dr. GPT , we are here to help you with your issues.
+Before we start , can i have your name please.
+                    </textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="systemContext">Hospital Services Knowledge:</label>
+                    <textarea type="text" class="form-control" id="systemContext" name="systemContext" required rows="12" cols="50">
+You have to act like a doctor and ask and record what the issue is with patient .
+
+After the patient has given his name , ask what issue he is facing . 
+
+Be help-full and calm the patient and try to ask all the questions that might help you cure the disease for the patient . 
+
+Any Other Information can be added here which is hospital specific.
+                    </textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+
+        <!-- Form 2 -->
+        <div class="container indform">
+            <form id="form2" action="https://rakathon.oxfin.in/campaign" method="POST">
+                <h2>2. <u>Simulate Patient Call</u> </h2>
+                <i> Make an actual call to simulate patient experience </i><br><br>
+                <!-- Default mobile number input field -->
+                <input type="tel" class="form-control" id="mobileNumber" name="mobileNumber" required>
+                <button type="submit" class="btn btn-primary">Trigger Calls</button>
+            </form>
+        </div>
+
+        <!-- Form 3 -->
+        <div class="container indform">     
+            <form id="form3">
+                <h2>3. <u>Analyze Patients Data</u> </h2>
+                <i> We are simulating the call experience a patient will have </i><br><br>
+                <table class="table able-bordered table-full-width">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Sagar Vats</td>
+                            <td><a href="/id1" >View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Rahul Singh</td>
+                            <td><a href="/id2" >View Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Include any additional validation scripts if needed -->
+    <script>
+        // Example: Basic form validation using JavaScript
+        document.getElementById("form1").addEventListener("submit", async function (event) {
+            event.preventDefault();
+            var companyName = document.getElementById("companyName").value;
+            var greetingQuery = document.getElementById("greetingQuery").value;
+            var systemContext = document.getElementById("systemContext").value;
+
+            if (companyName.trim() === "" || greetingQuery.trim() === "") {
+                alert("Please fill in all fields for Form 1.");
+                return;
+            }
+            
+            let body = {
+                "companyName" : companyName,
+                "greetingQuery" : greetingQuery,
+                "systemContext": systemContext
+            };
+
+            try {
+                const response = await fetch("https://rakathon.oxfin.in/project/65626c987fd87031a7517365", {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                });
+
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+
+                const data = await response.json();
+                alert(" SUCCESSFULLY SAVED Data...");
+                console.log("Success:", data);
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        });
+
+    document.getElementById("form2").addEventListener("submit", async function (event) {
+        event.preventDefault();
+       
+        var mobileInput = document.getElementById("mobileNumber");
+        var isValid = true;
+        var mobileNumber = mobileInput.value.trim();
+
+        console.log(" form2 submit clicked" , mobileInput);
+
+        // Example: Simple pattern validation for international phone numbers
+        var pattern = /^\+[0-9]+$/;
+        if (!pattern.test(mobileNumber)) {
+            isValid = false;
+        }
+
+        if (!isValid) {
+            alert("Please enter a valid mobile number with a country code for Form 2.");
+            return;
+        }
+
+        let body = {
+            "name"      : "Charm Health Hackathon Campaign",
+            "clientId"  : "CL1",
+            "projectId" : "65626c987fd87031a7517365",
+            "startTime" : "2023-11-11T11:11:11.000Z",
+            "data" : [
+                {
+                "name" : "Patient",
+                "mobile" : mobileNumber
+                }
+            ]
+        }
+
+        try {
+            const response = await fetch("https://rakathon.oxfin.in/campaign", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+
+            const data = await response.json();
+            alert(" Successfull , you will receive a call soon ");
+            console.log("Success:", data);
+        } catch (error) {
+            console.error("Error:", error);
+            alert(" FAILED : ", error);
+        }
+    });
+
+
+    </script>
+</body>
+</html>

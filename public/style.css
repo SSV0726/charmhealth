@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(2,37,42);
+    color: #fff;
+    text-align: center;
+    padding: 2px 0;
+}
+
+.container {
+    max-width: 95%;
+    margin: 10px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(2,37,42);
+    color: #fff;
+    border: none;
+    font-weight: bolder;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+.thumbnails {
+    display: none;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.thumbnails.show {
+    display: flex;
+}
+
+.thumbnail {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.thumbnail img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.indform {
+    width: 30%;
+}
+/* Add these styles to your existing CSS or create a new stylesheet */
+#form3 {
+    width: 100%;
+    max-width: none;
+}
+
+
+.table-full-width {
+    width: 100%;
+   
+}
+
+
+.container.indform table {
+    width: 100%;
+}
+
+.container.indform th,
+.container.indform td {
+    text-align: center;
+}
+
+.container.indform a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.container.indform button {
+    margin-top: 20px;
+}
+
+.resizable-input {
+    /* make resizable */
+    overflow-x: hidden;
+    resize: horizontal;
+    display: inline-block;
+
+    /* no extra spaces */
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+  
+    /* default widths */
+    width: 10em;
+    min-width: 2em;
+    max-width: 30em;
+}
+
+/* let <input> assume the size of the wrapper */
+.resizable-input > input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* add a visible handle */
+.resizable-input > span {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: -16px;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAJUlEQVR4AcXJRwEAIBAAIPuXxgiOW3xZYzi1Q3Nqh+bUDk1yD9sQaUG/4ehuEAAAAABJRU5ErkJggg==");
+    cursor: ew-resize;
+}
